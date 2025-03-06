@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist/",
+      "module": "CommonJS",
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "target": "ES2015",
+      "jsx": "react",
+      "allowJs": true
+    },
+    "include": ["./src/**/*"]
+  }
