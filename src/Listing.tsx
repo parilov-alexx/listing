@@ -2,8 +2,18 @@ import React from 'react';
 
 import './listing.css';
 
-
-function Listing({ items }: {items: Array<any>}) {
+type ItemsProps = {
+  title:string;
+  price: string;
+  currency_code: string;
+  quantity: number;
+  listing_id: number;
+  url: string;
+  MainImage: {
+    url_570xN:string;
+  };
+}
+function Listing({ items }: {items: Array<ItemsProps>}) {
   const getTitle = (title:string) => {
     if (title.length < 50) return title;
     return `${title.slice(0, 50)}...`;
@@ -29,6 +39,10 @@ function Listing({ items }: {items: Array<any>}) {
     return 'level-high';
   }
 
+  const getImageUrl = (urlImage:string) => {
+    return urlImage
+  }
+
   return (
     <div className="item-list">
       {items.map((item) => {
@@ -38,7 +52,7 @@ function Listing({ items }: {items: Array<any>}) {
           <div className="item" key={item.listing_id}>
             <div className="item-image">
               <a href={item.url}>
-                <img src={item.MainImage.url_570xN} alt={getTitle(item.title)} />
+                <img src={getImageUrl(item.MainImage.url_570xN)} alt={getTitle(item.title)} />
               </a>
             </div>
             <div className="item-details">
